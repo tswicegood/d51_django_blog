@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class RichTextField(models.TextField):
     pass
@@ -30,3 +31,4 @@ class D51Blog(models.Model):
         ordering = ['-published',]
         verbose_name = 'blog post'
         verbose_name_plural = 'blog posts'
+        app_label = getattr(settings, "D51_DJANGO_BLOG_APP_LABEL", "blog")
