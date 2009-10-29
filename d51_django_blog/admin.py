@@ -45,7 +45,7 @@ class D51BlogAdmin(admin.ModelAdmin):
     class Media:
         js = (
             'http://www.google.com/jsapi',
-            os.path.join(settings.D51_DJANGO_BLOG_MEDIA, 'js/admin.js'),
+            os.path.join(getattr(settings, "D51_DJANGO_BLOG_MEDIA", "d51blog"), 'js/admin.js'),
         )
         css = {
             'all':(
