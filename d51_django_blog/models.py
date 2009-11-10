@@ -19,6 +19,8 @@ class D51Blog(models.Model):
     add_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
+    image_url = models.URLField(blank=True, null=True)
+
     @property
     def title(self):
         return self.display_title or self.internal_title
