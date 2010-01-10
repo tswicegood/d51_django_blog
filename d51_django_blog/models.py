@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 class RichTextField(models.TextField):
     pass
@@ -24,6 +25,14 @@ class D51Blog(models.Model):
     @property
     def title(self):
         return self.display_title or self.internal_title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={
+            'year':self.published.year,
+            'month':self.published.strftime('%b'),
+            'day':self.published.day,
+            'slug':self.slug,
+        })
 
     def __unicode__(self):
         return self.title
