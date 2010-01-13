@@ -20,7 +20,7 @@ class D51Blog(models.Model):
     add_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
-    link = models.URLField(blank=True, null=True)
+    link = models.CharField(blank=True, null=True, max_length=200)
 
     @property
     def title(self):
