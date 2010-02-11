@@ -21,6 +21,8 @@ class D51Blog(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     link = models.CharField(blank=True, null=True, max_length=200)
+    thumb_url = models.CharField(blank=True, null=True, max_length=200)
+    photo_url = models.CharField(blank=True, null=True, max_length=200)
 
     @property
     def title(self):
